@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProofCell - sandboxed agents with proof</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1>ProofCell</h1>
+  <p class="tag">AI agents that do real work inside disposable sandboxes - with every step on the record.</p>
+</header>
+<main>
+  <section class="new-task">
+    <form id="task-form">
+      <textarea id="task" rows="3" maxlength="2000" required
+        placeholder="Try: Analyze /work/sales.csv and chart revenue by month"></textarea>
+      <div class="row">
+        <button type="submit">Run in sandbox</button>
+        <button type="button" id="drill" class="danger">Run containment drill</button>
+      </div>
+      <div id="drill-list" class="hidden"></div>
+    </form>
+    <div class="samples">
+      <span>Seed tasks:</span>
+      <button class="sample" data-task="Analyze the CSV at /work/samples/sales.csv, compute monthly revenue totals, and write /work/revenue_by_month.json">CSV analyst</button>
+      <button class="sample" data-task="The python script /work/samples/buggy.py fails. Find the bug, fix it, and show the test passing.">Self-healing runner</button>
+      <button class="sample" data-task="Open https://example.com in a browser, verify the heading says Example Domain, and capture a screenshot as proof.">Site QA sweep</button>
+    </div>
+  </section>
+  <section id="runs"><h2>Runs</h2><ul id="run-list"></ul></section>
+</main>
+<footer>Blast Radius Zero - contained by design, every step on the record. Designed for Vultr.</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

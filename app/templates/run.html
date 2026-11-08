@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run {{ run.id }} - ProofCell</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <h1><a href="/">ProofCell</a></h1>
+  <p class="tag">Run <code>{{ run.id }}</code> - <span id="status">{{ run.status.value }}</span></p>
+</header>
+<main>
+  <section class="task"><h2>Task</h2><p>{{ run.task }}</p></section>
+  <section id="approval" class="hidden">
+    <strong>Approval needed.</strong> A gated step is held. Review the ledger, then:
+    <button id="approve-btn">Approve and continue</button>
+  </section>
+  <section><h2>Live steps</h2><ol id="steps"></ol></section>
+  <section><h2>Proof ledger</h2>
+    <p class="muted">Hash-chained. Verify independently: <code>GET /api/runs/{{ run.id }}/verify</code>
+    -> <span id="verify">not checked</span></p>
+    <ol id="ledger" class="ledger"></ol>
+  </section>
+</main>
+<script>window.RUN_ID = {{ run.id | tojson }};</script>
+<script src="/static/run.js"></script>
+</body>
+</html>
