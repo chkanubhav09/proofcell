@@ -1,0 +1,22 @@
+:root { --bg:#0d1117; --panel:#161b22; --line:#30363d; --fg:#e6edf3; --muted:#8b949e; --accent:#4f8cff; --bad:#f85149; --ok:#3fb950; }
+* { box-sizing: border-box; }
+body { margin:0; font:16px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--fg); }
+header { padding:2rem 1.25rem 1rem; border-bottom:1px solid var(--line); }
+h1 { margin:0; font-size:1.6rem; } h1 a { color:var(--fg); text-decoration:none; }
+.tag { color:var(--muted); margin:.25rem 0 0; }
+main { max-width:860px; margin:0 auto; padding:1.25rem; display:grid; gap:1.25rem; }
+section { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:1rem 1.25rem; }
+textarea { width:100%; background:var(--bg); color:var(--fg); border:1px solid var(--line); border-radius:8px; padding:.6rem; font:inherit; }
+button { background:var(--accent); color:#fff; border:0; border-radius:8px; padding:.55rem 1rem; font:inherit; cursor:pointer; }
+button.danger { background:var(--bad); }
+button.sample { background:transparent; border:1px solid var(--line); color:var(--fg); padding:.3rem .7rem; font-size:.9rem; }
+.row { display:flex; gap:.6rem; margin-top:.6rem; }
+.samples { margin-top:.8rem; color:var(--muted); display:flex; gap:.5rem; flex-wrap:wrap; align-items:center; }
+.ledger li, #steps li { margin:.35rem 0; font-family:ui-monospace, monospace; font-size:.85rem; }
+.muted { color:var(--muted); } .hidden { display:none; }
+.badge-blocked { color:var(--bad); } .badge-ok { color:var(--ok); }
+footer { color:var(--muted); text-align:center; padding:2rem 1rem; font-size:.9rem; }
+#drill-list { margin-top:.6rem; display:flex; flex-direction:column; gap:.4rem; }
+#drill-list span { color:var(--muted); font-size:.85rem; }
+button.drill-scenario { text-align:left; background:var(--panel); border:1px solid var(--bad); padding:.5rem .7rem; }
+button.drill-scenario small { display:block; color:var(--muted); }
