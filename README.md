@@ -20,6 +20,11 @@ file) and watch the sandbox refuse, log and flag each tested attempt.
 Built for the **Vultr: Agent Rush Hackathon** (lablab.ai, 3-8 Nov 2026),
 Challenge 1: *Blast Radius Zero*.
 
+> **Status: working prototype.** The app runs locally today (see Quickstart);
+> Vultr VM deployment is pending Vultr account verification - tracked in
+> `deploy/DEPLOY.md`. The narrated prototype video and deck show the actual
+> running app.
+
 ## Why
 
 Agents that only chat are demos. Agents that execute are useful - and
@@ -89,7 +94,7 @@ Deployment to a Vultr VM: `deploy/DEPLOY.md`.
 
 ## The four things a judge should check
 
-1. The demo URL runs a real task end to end (try the CSV analyst seed task).
+1. Once deployed (pending Vultr account verification), the demo URL runs a real task end to end (try the CSV analyst seed task); the same flow runs locally today.
 2. The run page shows a live step stream and a proof ledger with hashes.
 3. The Containment Drill shows dangerous actions blocked and logged.
 4. `GET /api/runs/{id}/verify` recomputes the ledger and returns `valid: true`.
