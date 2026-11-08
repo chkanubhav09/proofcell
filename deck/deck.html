@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ProofCell - Vultr Agent Rush deck</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; }
+  .slide { width:1280px; height:720px; page-break-after:always; overflow:hidden;
+    background:#0d1117; color:#e6edf3; padding:64px 80px; position:relative;
+    display:flex; flex-direction:column; }
+  .kicker { color:#58a6ff; font-size:20px; letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px; }
+  h1 { font-size:64px; line-height:1.1; }
+  h2 { font-size:44px; margin-bottom:28px; }
+  p.lead { font-size:26px; color:#8b949e; margin-top:22px; line-height:1.45; }
+  .foot { position:absolute; bottom:28px; left:80px; right:80px; display:flex;
+    justify-content:space-between; color:#484f58; font-size:15px; }
+  .cols { display:flex; gap:36px; margin-top:12px; flex:1; }
+  .card { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:28px; flex:1; }
+  .card h3 { font-size:26px; margin-bottom:12px; color:#58a6ff; }
+  .card p, .card li { font-size:19px; color:#c9d1d9; line-height:1.5; }
+  .card ul { padding-left:20px; }
+  .shot { background:#010409; border:1px solid #30363d; border-radius:12px;
+    overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .shot img { width:100%; height:100%; object-fit:contain; display:block; }
+  .shot.cov img { object-fit:cover; }
+  .badge { display:inline-block; border-radius:8px; padding:6px 14px; font-size:19px; font-weight:700; }
+  .b-ref { background:#3d1215; color:#ff7b72; border:1px solid #ff7b72; }
+  .b-gate { background:#3a2e04; color:#f2cc60; border:1px solid #f2cc60; }
+  .arrow { align-self:center; font-size:40px; color:#30363d; }
+  code { background:#161b22; border-radius:6px; padding:2px 8px; color:#79c0ff; font-size:.92em; }
+  .big { font-size:30px; line-height:1.5; color:#c9d1d9; }
+  .slide.s4 { padding:40px 80px; }
+  .slide.s4 h2 { margin-bottom:12px; }
+  .slide.s4 .card { padding:12px 28px; }
+  .slide.s4 .cols { gap:12px !important; }
+  .slide.s4 .cols { margin-top:0; }
+  .slide.s4 .card p { font-size:17px; }
+  .slide.s4 .kicker { margin-bottom:8px; }
+  .slide.s4 p.lead { font-size:24px; }
+  .mono { font-family:'JetBrains Mono',monospace; }
+  .status { color:#f2cc60; font-size:19px; margin-top:18px; }
+  .cap { color:#484f58; font-size:14px; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<section class="slide">
+  <div class="kicker">Vultr Agent Rush &middot; Challenge 1: Blast Radius Zero</div>
+  <h1>ProofCell</h1>
+  <p class="lead">Sandboxed AI agents with a verifiable record of every step.<br>
+  Contained by design. Every step on the record.</p>
+  <div class="shot cov" style="height:300px;margin-top:30px;"><img src="assets/deck_form.png" alt="ProofCell home: task input and containment drill menu"></div>
+  <p class="cap" style="text-align:center;">Prototype build - designed for Vultr Cloud Compute + Serverless Inference; Vultr deployment pending account verification.</p>
+  <div class="foot"><span>Anubhav Chakraborty</span><span>1 / 8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The problem</div>
+  <h2>Agents that execute are useful - and dangerous</h2>
+  <p class="big">An agent that can write and run code can also wipe a disk, read your keys,
+  or exfiltrate your data.</p>
+  <p class="lead">Teams won't hand real work to agents they can't contain - and can't audit after the fact.</p>
+  <div class="foot"><span>ProofCell</span><span>2 / 8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">What ProofCell does</div>
+  <h2>Plan &rarr; Screen &rarr; Record</h2>
+  <div class="cols">
+    <div class="card"><h3>1 &middot; Plan</h3><p>A planner on Vultr Serverless Inference is designed to break your task into concrete steps. When a step fails, the error feeds back and the plan repairs itself.</p></div>
+    <div class="arrow">&rarr;</div>
+    <div class="card"><h3>2 &middot; Screen</h3><p>Every planned step is screened by a policy engine before it runs - refused outright, gated for human approval, or allowed. Execution is built for a fresh, locked-down Docker sandbox on a Vultr VM.</p></div>
+    <div class="arrow">&rarr;</div>
+    <div class="card"><h3>3 &middot; Record</h3><p>Every decision, command, output and artifact lands in a ledger that links entries with SHA-256 hashes, with a verifier that checks the chain for internal consistency.</p></div>
+  </div>
+  <div class="foot"><span>ProofCell</span><span>3 / 8</span></div>
+</section>
+
+<section class="slide s4">
+  <div class="kicker">Containment architecture</div>
+  <h2>Two walls, then a receipt</h2>
+  <p class="lead" style="margin-top:0;margin-bottom:14px;">Designed blast radius: the workspace, and nothing else.</p>
+  <div class="cols" style="flex-direction:column; gap:14px;">
+    <div class="card"><h3>Wall 1 &middot; Policy engine</h3><p>Static screening of every planned step before it runs: refuse destructive patterns outright, gate exfiltration-shaped actions for human approval. Demonstrated in the prototype.</p></div>
+    <div class="card"><h3>Wall 2 &middot; Disposable sandbox</h3><p>Designed: non-root, all capabilities dropped, read-only root filesystem, no credentials inside, CPU / memory / PID / wall-clock caps, network disabled - force-destroyed when the run ends. Awaits deployment testing.</p></div>
+    <div class="card"><h3>The receipt &middot; Proof ledger</h3><p>The ledger links entries with SHA-256 hashes and includes a verifier that checks the chain for internal consistency. Demonstrated in the prototype.</p></div>
+  </div>
+  <div class="foot"><span>ProofCell</span><span>4 / 8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The containment moment</div>
+  <h2>Watch the walls work</h2>
+  <div class="cols">
+    <div class="card"><span class="badge b-ref">REFUSED</span>
+      <div class="shot" style="height:170px;margin:16px 0;"><img src="assets/deck_wipe.png" alt="rm -rf / blocked by policy"></div>
+      <p><code>rm -rf /</code> refused by the policy engine before anything executes.</p></div>
+    <div class="card"><span class="badge b-gate">GATED &middot; NEVER APPROVED</span>
+      <div class="shot" style="height:170px;margin:16px 0;"><img src="assets/deck_exfil.png" alt="exfiltration held at approval gate"></div>
+      <p><code>curl --data @secret.txt</code> held for human approval; it never runs.</p></div>
+    <div class="card"><span class="badge b-ref">REFUSED</span>
+      <div class="shot" style="height:170px;margin:16px 0;"><img src="assets/deck_shadow.png" alt="/etc/shadow read blocked by policy"></div>
+      <p>Reading the host account database refused by policy.</p></div>
+  </div>
+  <p class="cap">Prototype recording, scripted drill plans: policy checks, approval gate and ledger are the real app paths. No container runtime in this recording - Docker isolation awaits deployment testing.</p>
+  <div class="foot"><span>ProofCell</span><span>5 / 8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Proof you can verify</div>
+  <h2>A receipt for every step</h2>
+  <div class="cols">
+    <div class="shot" style="flex:1.4;"><img src="assets/deck_ledger.png" alt="ledger view with verifier output: valid"></div>
+    <div class="card" style="flex:1;">
+      <ul>
+        <li>Each event links to the previous by SHA-256.</li>
+        <li>The verifier checks the chain for internal consistency.</li>
+        <li>Refusals, gates and executions all land on the same record.</li>
+        <li>Artifacts carry content hashes.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>ProofCell</span><span>6 / 8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">Built for Vultr</div>
+  <h2>Vultr is the control plane, not a host</h2>
+  <div class="cols">
+    <div class="card"><h3>Cloud Compute</h3><p>A single regular-performance VM is designed to run the whole control layer and the sandbox pool - planning, dispatch, sandbox lifecycle, ledger, UI.</p></div>
+    <div class="card"><h3>Serverless Inference</h3><p>OpenAI-compatible endpoint designed to power the planner and its error-feedback repair loop - no GPU, no model ops.</p></div>
+    <div class="card"><h3>Vultr API</h3><p>Sandbox lifecycle is disposable by design; the same API path scales to throwaway-per-task instances.</p></div>
+  </div>
+  <p class="status">Intended architecture - Vultr deployment is pending account verification; policy, gate and ledger paths demonstrated locally.</p>
+  <div class="foot"><span>ProofCell</span><span>7 / 8</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">What's next</div>
+  <h2>From drill to default</h2>
+  <div class="cols">
+    <div class="card"><ul>
+      <li>Policy engine that learns new refuse/gate patterns from drill outcomes.</li>
+      <li>Multi-step approval chains for long-running agent workflows.</li>
+      <li>Hosted verifier: paste a ledger, get an independent verdict.</li>
+    </ul></div>
+    <div class="card"><h3>Links</h3>
+      <p>Live demo: <span class="mono">pending Vultr account verification</span></p>
+      <p style="margin-top:14px;">Source (MIT): <span class="mono">github.com/chkanubhav09/proofcell</span></p>
+    </div>
+  </div>
+  <div class="foot"><span>ProofCell &middot; contained by design, every step on the record</span><span>8 / 8</span></div>
+</section>
+
+</body>
+</html>
